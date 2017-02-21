@@ -48,7 +48,7 @@
                     var page = 1;
                     while (_numberOfRequests < 5000 && (returnedGithubObjects == null || returnedGithubObjects.Any()))
                     {
-                        using (var response = await client.GetAsync($"{url}?page={page}"))
+                        using (var response = await client.GetAsync($"{url}?page={page}&per_page=100"))
                         {
                             _numberOfRequests++;
                             var content = await response.Content.ReadAsStringAsync();
